@@ -27,3 +27,4 @@ headerchange.textContent = document.querySelector("#scanOut").value
 event.preventDefault()
 }
 button3.addEventListener('click', inputText)
+
