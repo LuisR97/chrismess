@@ -11,18 +11,27 @@
    
 </head>
 <body>
+    <!--Creating the few headers and buttons that change them -->
     <h1 class = "chris">Chrissmess</h1>
     <button>Click Me to meme</button>
     <h2 id = "m1">What do we want?</h2>
     <button id = "button2">Huh?</button>
-    <h2>When do we want it?</h2>
-    <form>
+    <h3>What films do you enjoy what which Chris do they have?</h3>
+
+    <!--Creating a form and adding inputs for fields-->
+    <form id = "chrisList">
         Enter a Chris:
-        <input type = "text" id = "scanOut">  
-        <input type = "submit" id = "scanIn">
+        <input type = "text" id = "scanName" name = "chrisName"> 
+        Enter the movie he was in
+        <input type = "text" id = "scanMovie" name = "movieName"> 
+        <input type = "submit" id = "scanIn"> 
     </form>
+
+
+    <ul id = "names"></ul>
   
     
+
 
     <script src="index.js"></script>
 </body>
