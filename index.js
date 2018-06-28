@@ -32,13 +32,14 @@ const chrisNameList = document.querySelector('#chrisList')
 function inputField(event)
 {
 event.preventDefault()
-console.log(event)
+
 const field = event.target
+
 const chrisInputName = field.chrisName.value //getting value of input
 const itemName = document.createElement('li') //creating a list 
-
 const movieInputName = field.movieName.value
 const itemMovie = document.createElement('li')
+
 itemMovie.textContent = chrisInputName + ', ' + movieInputName //assigning values to the list 
 
 const nameList = document.querySelector('#names')
