@@ -16,18 +16,35 @@ const renderProperty = function(name, value)
     return span
 }
 
+const renderItem = function(recomendation)
+{
+    const item = document.createElement('li')
+    item.classList.add('recomendation')
+
+    //get the list of properties
+    const properties = Object.keys(recomendation)
+    
+    //loop over each propertiy
+    properties.forEach(function(propertyName)
+    {
+        //build a span
+        const span = renderProperty(propertyName, recomendation[propertyName])
+        item.appendChild(span)
+    })  
+    return item
+}
+
 const handleSubmit = function(ev)
 {
 ev.preventDefault()
 const f = ev.target
 
-const restaurantNameSpan = renderProperty('name', f.restaurantName.value)
-const restaurantRatingSpan = renderProperty('name', f.rating.value)
-
-const item = document.createElement('li')
-item.classList.add('recomendation')
-item.appendChild(restaurantNameSpan)
-item.appendChild(restaurantRatingSpan)
+const recomendation =
+{
+    name: f.restaurantName.value,
+    rating: f.rating.value,
+}
+    const item = renderItem(recomendation)
 
 const recomendationsList = document.querySelector('#recomendations')
 recomendationsList.appendChild(item)
@@ -42,7 +59,13 @@ recomendationsList.addEventListener('submit', handleSubmit)
 
 
 
+/*const restaurantNameSpan = renderProperty('name', f.restaurantName.value)
+const restaurantRatingSpan = renderProperty('name', f.rating.value)
 
+const item = document.createElement('li')
+item.classList.add('recomendation')
+item.appendChild(restaurantNameSpan)
+item.appendChild(restaurantRatingSpan) */
 
 
 

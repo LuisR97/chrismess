@@ -6,3 +6,8 @@ input[type="text"].smaller {
   {
       display: block;
   }
+  
+  .restaurantName
+  {
+      display: block;
+  }
