@@ -14,15 +14,20 @@ ev.preventDefault()
 const f = ev.target
 
 const restaurantName = f.restaurantName.value //getting value of input
+const restaurantNameSpan = document.createElement('span')
+restaurantNameSpan.textContent = restaurantName
+
 const restaurantRating = f.rating.value
+const restaurantRatingSpan = document.createElement('span')
+restaurantRatingSpan.textContent = restaurantRating
 
+ 
+const item = document.createElement('li')
+item.appendChild(restaurantNameSpan)
+item.appendChild(restaurantRatingSpan)
 
-const itemName = document.createElement('li') //creating a list 
-const itemMovie = document.createElement('li')
-itemMovie.textContent = restaurantName + ', ' + restaurantRating //assigning values to the list 
-
-const nameList = document.querySelector('#recomendations')
-nameList.appendChild(itemMovie)
+const recomendationsList = document.querySelector('#recomendations')
+recomendationsList.appendChild(item)
 f.reset()
 }
 
