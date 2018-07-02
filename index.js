@@ -15,14 +15,17 @@ const f = ev.target
 
 const restaurantName = f.restaurantName.value //getting value of input
 const restaurantNameSpan = document.createElement('span')
+restaurantNameSpan.classList.add('name')
 restaurantNameSpan.textContent = restaurantName
 
 const restaurantRating = f.rating.value
 const restaurantRatingSpan = document.createElement('span')
+restaurantRatingSpan.classList.add('rating')
 restaurantRatingSpan.textContent = restaurantRating
 
  
 const item = document.createElement('li')
+item.classList.add('recomendation')
 item.appendChild(restaurantNameSpan)
 item.appendChild(restaurantRatingSpan)
 
