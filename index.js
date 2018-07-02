@@ -8,22 +8,22 @@ console.log("It works!")
 
 const recomendationsList = document.querySelector('#recRoster')
 
-function handleSubmit(ev)
+const renderProperty = function(name, value)
+{
+    const span = document.createElement('span')
+    span.classList.add(name)
+    span.textContent = value
+    return span
+}
+
+const handleSubmit = function(ev)
 {
 ev.preventDefault()
 const f = ev.target
 
-const restaurantName = f.restaurantName.value //getting value of input
-const restaurantNameSpan = document.createElement('span')
-restaurantNameSpan.classList.add('name')
-restaurantNameSpan.textContent = restaurantName
+const restaurantNameSpan = renderProperty('name', f.restaurantName.value)
+const restaurantRatingSpan = renderProperty('name', f.rating.value)
 
-const restaurantRating = f.rating.value
-const restaurantRatingSpan = document.createElement('span')
-restaurantRatingSpan.classList.add('rating')
-restaurantRatingSpan.textContent = restaurantRating
-
- 
 const item = document.createElement('li')
 item.classList.add('recomendation')
 item.appendChild(restaurantNameSpan)
@@ -46,6 +46,17 @@ recomendationsList.addEventListener('submit', handleSubmit)
 
 
 
+/*
+const restaurantName = f.restaurantName.value //getting value of input
+const restaurantNameSpan = document.createElement('span')
+restaurantNameSpan.classList.add('name')
+restaurantNameSpan.textContent = restaurantName
+
+const restaurantRating = f.rating.value
+const restaurantRatingSpan = document.createElement('span')
+restaurantRatingSpan.classList.add('rating')
+restaurantRatingSpan.textContent = restaurantRating
+*/
 
 
 /*
@@ -69,103 +80,3 @@ function updateSecondHeading()
 
 button.addEventListener('click', updateTopHeading)
 button2.addEventListener('click', updateSecondHeading) */
-
-
-
-/*class App 
-{
-    constructor()
-    {
-        this.list = document.querySelector('#recomendations')
-        
-        const form = document.querySelector('form#recRoster')
-        form.addEventListener('submit', (ev) =>
-        {
-            ev.preventDefault()
-            this.handleSubmit(ev)
-        })
-    }
-
-    save()
-    {
-        localStorage.setItem('recomendations', JSON.stringify(this.recomendations))
-    }
-
-    renderProperty(name, value)
-    {
-        const span = document.createElement('span')
-        span.classList.add(name)
-        span.textContent = value
-        return span 
-    }
-    
-    renderProperties(recomendation, item)
-    {
-        const div = document.createElement('div')
-        div.classList.add('info')
-
-        //get the list of properties
-        const properties = Object.keys(recomendation)
-
-        //loop over the properties
-        properties.forEach((propertyName) => 
-        {
-        //build a span, and append it to the div
-        const span = this.renderProperty(propertyName, recomendation[propertyName])
-        div.appendChild(span)
-        })
-
-        return div
-    }
-
-    renderItem(recomendation)
-    {
-        const item = document.createElement('li')
-        item.classList.add('recomendation')
-
-        //add all properties
-        const properties = his.renderProperties(recomendation, item)
-        item.appendChild(properties)
-
-        //add action buttons
-        const actions = this.renderActionButtons(recomendation, item)
-        item.appendChild(actions)
-        
-        return item
-    }
-
-    addRecomendation(recomendation)
-    {
-        this.recomendation.push(recomendation)
-        const item = this.renderItem(recomendation)
-
-        if(recomendation.favorite)
-        {
-            item.classList.add('fav')
-        }
-
-        this.list.appendChild(item)
-
-    }
-
-    handleSubmit(ev)
-    {
-        const f = ev.target
-
-        const recomendation =
-        {
-            name: f.restaurant.value,
-            rating: f.rating.value,
-            favorite: false,
-        }
-
-        this.addRecomendation(recomendation)
-        this.save()
-        
-        f.reset()
-        f.restaurant.focus()
-    }
-
-}
-  
-const app = new App() */
