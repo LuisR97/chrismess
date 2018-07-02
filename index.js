@@ -50,6 +50,7 @@ class App
     const recomendationsList = document.querySelector('#recomendations')
     recomendationsList.appendChild(item)
     f.reset()
+    f.restaurantName.focus()
     }
 
 }
