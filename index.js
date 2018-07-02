@@ -1,57 +1,64 @@
+class App 
+{
+    constructor()
+    {
+        const recomendationsList = document.querySelector('#recRoster')
+        recomendationsList.addEventListener('submit', (ev) =>
+        {
+            ev.preventDefault()
+            this.handleSubmit(ev)
+        })
+    }
+    renderProperty(name, value)
+    {
+        const span = document.createElement('span')
+        span.classList.add(name)
+        span.textContent = value
+        return span
+    }
+
+    renderItem(recomendation)
+    {
+        const item = document.createElement('li')
+        item.classList.add('recomendation')
+
+        //get the list of properties
+        const properties = Object.keys(recomendation)
+        
+        //loop over each propertiy
+        properties.forEach((propertyName) =>
+        {
+            //build a span
+            const span = this.renderProperty(propertyName, recomendation[propertyName])
+            item.appendChild(span)
+        })  
+        return item
+    }
+
+    handleSubmit(ev)
+    {
+    
+    const f = ev.target
+
+    const recomendation =
+    {
+        name: f.restaurantName.value,
+        rating: f.rating.value,
+    } 
+        const item = this.renderItem(recomendation)
+
+    const recomendationsList = document.querySelector('#recomendations')
+    recomendationsList.appendChild(item)
+    f.reset()
+    }
+
+}
+
+const app = new App()
 console.log("It works!")
 
 
-//Create a text box for user input
-//Change the text of the first heading to whatever the user typed in the text box
-//took some elements from Dave's lecture code
-//const button3 = document.querySelector("#scanIn")
 
-const recomendationsList = document.querySelector('#recRoster')
-
-const renderProperty = function(name, value)
-{
-    const span = document.createElement('span')
-    span.classList.add(name)
-    span.textContent = value
-    return span
-}
-
-const renderItem = function(recomendation)
-{
-    const item = document.createElement('li')
-    item.classList.add('recomendation')
-
-    //get the list of properties
-    const properties = Object.keys(recomendation)
-    
-    //loop over each propertiy
-    properties.forEach(function(propertyName)
-    {
-        //build a span
-        const span = renderProperty(propertyName, recomendation[propertyName])
-        item.appendChild(span)
-    })  
-    return item
-}
-
-const handleSubmit = function(ev)
-{
-ev.preventDefault()
-const f = ev.target
-
-const recomendation =
-{
-    name: f.restaurantName.value,
-    rating: f.rating.value,
-}
-    const item = renderItem(recomendation)
-
-const recomendationsList = document.querySelector('#recomendations')
-recomendationsList.appendChild(item)
-f.reset()
-}
-
-recomendationsList.addEventListener('submit', handleSubmit)
 
 
 
