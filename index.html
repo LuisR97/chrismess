@@ -1,24 +1,159 @@
-//Luis Raygadas
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Chrismess - a whole mess o' Chrisses</title>
+    <title>Indy Recomendations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
    
 </head>
 <body>
     <!--Creating the few headers and buttons that change them -->
+   <!-- <h1 class = "chris">Chrissmess</h1>
+    <button>Click Me to meme</button>
+    <h2 id = "m1">What do we want?</h2>
+    <button id = "button2">Huh?</button>
+    <h3>What films do you enjoy what which Chris do they have?</h3> -->
+    <header>
+    <h1>Databse for cool places to eat in Indianapolis</h1>
+    <p>Hello, my name is Luis and I'm looking for places to eat in this city, please give me recomendations or just give me free food."</p>
+    </header>
+
+    <!--Creating a form and adding inputs for fields-->
+    <form id = "recRoster">
+        <div class = "wantToEat">
+        <input 
+            type = "text" 
+            name = "restaurantName" 
+            placeholder = "Enter a restaurant's name"
+            autofocus
+        >
+        <input 
+            class = "smaller"
+            type = "text" 
+            name = "rating" 
+            placeholder= "Enter a letter grade rating"
+        > 
+        <button
+             type = "submit">
+             Enter Recomendation
+        </button>
+
+        </div>
+    </form>
+
+
+    <ul id = "recomendations"></ul>
+  
+
+   <!-- <form id = "recRoster">
+            <div class = "wantToEat Now">
+                <input 
+                    type = "text"
+                    name = "restaurant"
+                    placeholder = "Enter a restaurant's name"
+                    autofocus
+                >
+                <input 
+                    class = "smaller"
+                    type = "text"
+                    name = "rating"
+                    placeholder = "Rate it"
+                >
+                <button
+                    type = "submit">
+                Enter Recomendation
+                </button>
+    
+            </div>
+    
+        </form> -->
+    
+
+
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Cool Indi Food</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="index.css" />
+   
+</head>
+<body>
+   
+    <header>
+    <h1>Databse for cool places to eat in Indianapolis</h1>
+    <p>Hello, my name is Luis and I'm looking for places to eat in this city, please give me recomendations or just give me free food."</p>
+
+    </header>
+
+    <form id = "recRoster">
+        <div class = "wantToEat Now">
+            <input 
+                type = "text"
+                name = "restaurant"
+                placeholder = "Enter a restaurant's name"
+                autofocus
+            >
+            <input 
+                class = "smaller"
+                type = "text"
+                name = "rating"
+                placeholder = "Rate it"
+            >
+            <button
+                type = "submit">
+            Enter Recomendation
+            </button>
+
+        </div>
+
+    </form>
+
+    <ul id = "recomendations"></ul> -->
+
+    <!--
+
+    <Creating the few headers and buttons that change them 
     <h1 class = "chris">Chrissmess</h1>
     <button>Click Me to meme</button>
     <h2 id = "m1">What do we want?</h2>
     <button id = "button2">Huh?</button>
     <h3>What films do you enjoy what which Chris do they have?</h3>
 
-    <!--Creating a form and adding inputs for fields-->
+    Creating a form and adding inputs for fields
     <form id = "chrisList">
         Enter a Chris:
         <input type = "text" id = "scanName" name = "chrisName"> 
@@ -26,13 +161,10 @@
         <input type = "text" id = "scanMovie" name = "movieName"> 
         <input type = "submit" id = "scanIn"> 
     </form>
-
-
-    <ul id = "names"></ul>
-  
-    
-
+    <ul id = "names"></ul> 
 
     <script src="index.js"></script>
 </body>
 </html>
+
+-->

@@ -1,7 +1,46 @@
-//Luis Raygadas
-
 console.log("It works!")
 
+
+//Create a text box for user input
+//Change the text of the first heading to whatever the user typed in the text box
+//took some elements from Dave's lecture code
+//const button3 = document.querySelector("#scanIn")
+
+const recomendationsList = document.querySelector('#recRoster')
+
+function handleSubmit(ev)
+{
+ev.preventDefault()
+const f = ev.target
+
+const restaurantName = f.restaurantName.value //getting value of input
+const restaurantRating = f.rating.value
+
+
+const itemName = document.createElement('li') //creating a list 
+const itemMovie = document.createElement('li')
+itemMovie.textContent = restaurantName + ', ' + restaurantRating //assigning values to the list 
+
+const nameList = document.querySelector('#recomendations')
+nameList.appendChild(itemMovie)
+f.reset()
+}
+
+recomendationsList.addEventListener('submit', handleSubmit)
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 //Top heading of the webpage
 //Create button to change the text of the top heading
 const button = document.querySelector('button')
@@ -21,30 +60,104 @@ function updateSecondHeading()
 }
 
 button.addEventListener('click', updateTopHeading)
-button2.addEventListener('click', updateSecondHeading)
+button2.addEventListener('click', updateSecondHeading) */
 
-//Create a text box for user input
-//Change the text of the first heading to whatever the user typed in the text box
-//took some elements from Dave's lecture code
-//const button3 = document.querySelector("#scanIn")
 
-const chrisNameList = document.querySelector('#chrisList')
-function inputField(event)
+
+/*class App 
 {
-event.preventDefault()
+    constructor()
+    {
+        this.list = document.querySelector('#recomendations')
+        
+        const form = document.querySelector('form#recRoster')
+        form.addEventListener('submit', (ev) =>
+        {
+            ev.preventDefault()
+            this.handleSubmit(ev)
+        })
+    }
 
-const field = event.target
+    save()
+    {
+        localStorage.setItem('recomendations', JSON.stringify(this.recomendations))
+    }
 
-const chrisInputName = field.chrisName.value //getting value of input
-const itemName = document.createElement('li') //creating a list 
-const movieInputName = field.movieName.value
-const itemMovie = document.createElement('li')
+    renderProperty(name, value)
+    {
+        const span = document.createElement('span')
+        span.classList.add(name)
+        span.textContent = value
+        return span 
+    }
+    
+    renderProperties(recomendation, item)
+    {
+        const div = document.createElement('div')
+        div.classList.add('info')
 
-itemMovie.textContent = chrisInputName + ', ' + movieInputName //assigning values to the list 
+        //get the list of properties
+        const properties = Object.keys(recomendation)
 
-const nameList = document.querySelector('#names')
-nameList.appendChild(itemMovie)
-field.reset()
+        //loop over the properties
+        properties.forEach((propertyName) => 
+        {
+        //build a span, and append it to the div
+        const span = this.renderProperty(propertyName, recomendation[propertyName])
+        div.appendChild(span)
+        })
+
+        return div
+    }
+
+    renderItem(recomendation)
+    {
+        const item = document.createElement('li')
+        item.classList.add('recomendation')
+
+        //add all properties
+        const properties = his.renderProperties(recomendation, item)
+        item.appendChild(properties)
+
+        //add action buttons
+        const actions = this.renderActionButtons(recomendation, item)
+        item.appendChild(actions)
+        
+        return item
+    }
+
+    addRecomendation(recomendation)
+    {
+        this.recomendation.push(recomendation)
+        const item = this.renderItem(recomendation)
+
+        if(recomendation.favorite)
+        {
+            item.classList.add('fav')
+        }
+
+        this.list.appendChild(item)
+
+    }
+
+    handleSubmit(ev)
+    {
+        const f = ev.target
+
+        const recomendation =
+        {
+            name: f.restaurant.value,
+            rating: f.rating.value,
+            favorite: false,
+        }
+
+        this.addRecomendation(recomendation)
+        this.save()
+        
+        f.reset()
+        f.restaurant.focus()
+    }
+
 }
-chrisNameList.addEventListener('submit', inputField)
-
+  
+const app = new App() */
