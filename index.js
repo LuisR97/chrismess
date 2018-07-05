@@ -2,6 +2,7 @@ class App
 {
     constructor()
     {
+        this.recomendationsList = document.querySelector('#recomendations')
         this.recomendations = []
 
         const recomendationsList = document.querySelector('#recRoster')
@@ -34,7 +35,20 @@ class App
             const span = this.renderProperty(propertyName, recomendation[propertyName])
             item.appendChild(span)
         })  
+
+        //add delete button
+        const deleteButton = document.createElement('button')
+        deleteButton.textContent = 'delete'
+        deleteButton.addEventListener('click', () => this.removeRecomendation(item))
+        item.appendChild(deleteButton)
+
         return item
+    }
+
+    removeRecomendation(item)
+    {
+        this.recomendationsList.removeChild(item)
+
     }
 
     handleSubmit(ev)
@@ -45,16 +59,17 @@ class App
     const recomendation =
     {
         name: f.restaurantName.value,
-        rating: f.rating.value,
+        rating: f.rating.value, 
     } 
 
     this.recomendations.push(recomendation)
     
     this.recomendations.push(recomendation)
-        const item = this.renderItem(recomendation)
 
-    const recomendationsList = document.querySelector('#recomendations')
-    recomendationsList.appendChild(item)
+    const item = this.renderItem(recomendation)
+
+    this.recomendationsList.appendChild(item)
+    
     f.reset()
     f.restaurantName.focus()
     }
