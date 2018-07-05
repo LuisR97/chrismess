@@ -2,6 +2,8 @@ class App
 {
     constructor()
     {
+        this.recomendations = []
+
         const recomendationsList = document.querySelector('#recRoster')
         recomendationsList.addEventListener('submit', (ev) =>
         {
@@ -45,6 +47,10 @@ class App
         name: f.restaurantName.value,
         rating: f.rating.value,
     } 
+
+    this.recomendations.push(recomendation)
+    
+    this.recomendations.push(recomendation)
         const item = this.renderItem(recomendation)
 
     const recomendationsList = document.querySelector('#recomendations')
