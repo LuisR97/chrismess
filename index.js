@@ -39,16 +39,30 @@ class App
         //add delete button
         const deleteButton = document.createElement('button')
         deleteButton.textContent = 'delete'
-        deleteButton.addEventListener('click', () => this.removeRecomendation(item))
+        deleteButton.addEventListener('click', (_ev) => this.removeRecomendation(recomendation, item))
         item.appendChild(deleteButton)
 
+        //add a favorite button
+        const favButton = document.createElement('button')
+        favButton.textContent = 'favorite'
+        favButton.addEventListener('click', (_ev) => this.toggleFavorite(recomendation, item))
+        item.appendChild(favButton)
         return item
     }
 
-    removeRecomendation(item)
+    toggleFavorite(recomendation, item)
     {
+        recomendation.favorite = !recomendation.favorite
+    }
+
+    removeRecomendation(recomendation, item)
+    {
+        //remove from the UI
         this.recomendationsList.removeChild(item)
 
+        //remove from the array
+        const i = this.recomendations.indexOf(recomendation)
+        this.recomendations.splice(i, 1)
     }
 
     handleSubmit(ev)
@@ -60,6 +74,7 @@ class App
     {
         name: f.restaurantName.value,
         rating: f.rating.value, 
+        favorite: false,
     } 
 
     this.recomendations.push(recomendation)

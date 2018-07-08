@@ -11,3 +11,13 @@ input[type="text"].smaller {
   {
       display: block;
   }
+
+  span.favorite
+  {
+      display: none;
+  }
+
+  .fav
+  {
+      background-color: gold;
+  }
