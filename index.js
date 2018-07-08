@@ -51,8 +51,8 @@ class App
     }
 
     toggleFavorite(recomendation, item)
-    {
-        recomendation.favorite = !recomendation.favorite
+    { //update UI and the array
+        recomendation.favorite = item.classList.toggle('fav')
     }
 
     removeRecomendation(recomendation, item)
