@@ -4,6 +4,7 @@ class App
     {
         this.recomendationsList = document.querySelector('#recomendations')
         this.recomendations = []
+        this.load()
 
         const recomendationsList = document.querySelector('#recRoster')
         recomendationsList.addEventListener('submit', (ev) =>
@@ -12,6 +13,21 @@ class App
             this.handleSubmit(ev)
         })
     }
+
+    save()
+    {
+        //store recomendations in local storage
+        localStorage.setItem('recomendations', JSON.stringify(this.recomendations))
+    }
+
+    load()
+    {
+        const recomendations = JSON.parse(localStorage.getItem('recomendations'))
+        
+        recomendations.forEach(recomendation => this.addRecomendation(recomendation))
+
+    }
+
     renderProperty(name, value)
     {
         const span = document.createElement('span')
@@ -81,6 +97,9 @@ class App
     toggleFavorite(recomendation, item)
     { //update UI and the array
         recomendation.favorite = item.classList.toggle('fav')
+
+        //update localStorage
+        this.save()
     }
 
     removeRecomendation(recomendation, item)
@@ -91,6 +110,26 @@ class App
         //remove from the array
         const i = this.recomendations.indexOf(recomendation)
         this.recomendations.splice(i, 1)
+
+        //update localStorage
+        this.save()
+    }
+
+    addRecomendation(recomendation)
+    {
+        //add it to the array
+        this.recomendations.push(recomendation)
+        this.save()
+
+        const item = this.renderItem(recomendation)
+
+        //mark it as a fav if applicable
+        if(recomendation.favorite)
+        {
+            item.classList.add('fav')
+        }
+
+        this.recomendationsList.appendChild(item)
     }
 
     handleSubmit(ev)
@@ -105,13 +144,7 @@ class App
         favorite: false,
     } 
 
-    this.recomendations.push(recomendation)
-    
-    this.recomendations.push(recomendation)
-
-    const item = this.renderItem(recomendation)
-
-    this.recomendationsList.appendChild(item)
+    this.addRecomendation(recomendation)
     
     f.reset()
     f.restaurantName.focus()
