@@ -20,10 +20,10 @@ class App
         return span
     }
 
-    renderItem(recomendation)
+    renderProperties (recomendation)
     {
-        const item = document.createElement('li')
-        item.classList.add('recomendation')
+        const div = document.createElement('div')
+        div.classList.add('info')
 
         //get the list of properties
         const properties = Object.keys(recomendation)
@@ -33,20 +33,48 @@ class App
         {
             //build a span
             const span = this.renderProperty(propertyName, recomendation[propertyName])
-            item.appendChild(span)
+            div.appendChild(span)
         })  
+        return div
+
+    }
+
+    renderActionButtons(recomendation, item)
+    {
+        const actions = document.createElement('div')
+        actions.classList.add('actions')
 
         //add delete button
         const deleteButton = document.createElement('button')
-        deleteButton.textContent = 'delete'
+        deleteButton.classList.add('remove')
+        deleteButton.innerHTML = '<i class="far fa-trash-alt" title="remove recomendation"></i>'
         deleteButton.addEventListener('click', (_ev) => this.removeRecomendation(recomendation, item))
-        item.appendChild(deleteButton)
+        actions.appendChild(deleteButton)
 
         //add a favorite button
         const favButton = document.createElement('button')
-        favButton.textContent = 'favorite'
+        favButton.classList.add('fav')
+        favButton.innerHTML = '<i class="fas fa-star" title="toggle favorite"></i>'
         favButton.addEventListener('click', (_ev) => this.toggleFavorite(recomendation, item))
-        item.appendChild(favButton)
+        actions.appendChild(favButton)
+
+        return actions
+    }
+
+    renderItem(recomendation)
+    {
+        const item = document.createElement('li')
+        item.classList.add('recomendation')
+
+        // add all the properties
+        const properties = this.renderProperties(recomendation)
+        item.appendChild(properties)
+
+       //add action buttons
+
+        const actions = this.renderActionButtons(recomendation, item)
+        item.appendChild(actions)
+
         return item
     }
 
